@@ -4,6 +4,8 @@
 <br/>
 
 👉 [배포 주소](https://catbow.github.io/catbow-photo-converter/)
+👉 [catbow-Library-gitHub](https://github.com/catbow/react-catbow-scrollview)
+👉 [회고록](https://0119eunji.tistory.com/75)
 
 <br/>
 <br/>
@@ -66,10 +68,10 @@ Catbow-library 프로젝트에서 만든 라이브러리 [catbow-library](https:
 
 | 사용 기술 | 기술 결정 이유 |
 | --- | --- |
-| **`react-hook-form`** | react-hook-form vs SurveyJs<br><br>설문지를 JSON 형식으로 백앤드와 주고 받아야했습니다.survey.js를 활용하면 JSON 형식으로 데이터를 쉽게 만들 수 있고 UI로도 보여줄 수도 있었지만, 비용이 든다는 문제가 있었습니다. 또한 최소 10개 이상의 input이 있는 설문지 제작 페이지에서 렌더링 이슈를 문제를 해결해야 했습니다. 따라서 비제어 컴포넌트 방식을 구현된 react-hook-form을 활용하여 렌더링 이슈와 설문지를 JSON 형식으로 만들기로 했습니다. |
-| **`recharts`** | nivo vs Recharts<br><br>내부에서 상업용으로 쓰일 수 있기 때문에 최대한 오픈 소스를 사용하고자 했습니다.이에 차트 라이브러리인 nivo 와 Recharts 고민했고, nivo는combined charts를 제공해주지 않는다는 점을 고려해 가장 많이 쓰이는 Recharts를 사용하기로 결정했습니다. |
-| **`Axios`** | Axios vs JS Fetch API<br><br>response timeout (fetch에는 없는 기능) 처리 방법이 존재 Promise 기반으로 만들어졌기 때문에 데이터를 다루기 편리합니다. 브라우저 호환이 fetch보다 뛰어나기 때문에 웹을 염두한 convert-page에 적합하다고 생각했습니다. |
-| **`Styled components`** | CSS-in-JS vs CSS-in-CSS<br><br>css를 파일 분리 없이 유지 보수 할 수 있는점이 장점이라 생각했습니다. props나 state에 따른 동적 스타일링이 가능합니다. 그 중 점유율이 높은 styled components를 사용했습니다. |
+| **`typescript`** | 구현 당시 javascript로 구현하였으나 typescript를 학습한 후 javascript 에서 typescript로 마이그레이션 하였습니다. Typescript는 독자적인 언어가 아니기 때문에 컴파일을 하기 위한 파일을 추가하는 등 옵션을 설정해야하지만 정적타입을 지원해 런타임이 아닌 컴파일 단계에서 오류를 잡아낼 수 있어 에러를 사전에 방지할 수 있습니다. |
+| **`S3`** | 클라이언트에서 유저의 동영상을 받아 서버에 넘겨야했습니다. 이 때 동영상 파일을 주는 것은 비효율적이기 때문에 클라이언트에서 amazon-S3의 put.Object 메서드를 사용해 S3에 올린 후 uuid의 고유한 파일 키를 전달하기로 결정했습니다. 서버는 버킷 이름, s3 로케이션, 파일이름으로 url에 접근할 수 있습니다.|
+| **`ci/cd`** | 코드를 리팩토링 하거나 S3 계정을 옮길 때마다 매번 빌드 명령어를 작성하기 번거롭기 때문에 main branch 에 push 할 때마다 자동으로 배포되게끔 ci/cd 구현을 결정하였습니다. .env 파일은 git에 올라가지 않아 빌드시 터미널 명령어를 사용해 .env 파일을 만들어 git의 secrets 키를 넣어 빌드할 수 있게끔 했습니다. |
+| **`Styled components`** | css를 파일 분리 없이 유지 보수 할 수 있고 조건부 스타일링을 구현하는데 편리해 사용을 결정하였습니다. props나 state에 따른 동적 스타일링이 가능해 button 컴포넌트에 유용하게 사용하였고 자주 쓰이는 색과 css를 globalStyle로 전역 관리해 재사용하였습니다. |
 
 
 
@@ -264,7 +266,7 @@ import { v1 } from 'uuid';
 
 ```
 
-
+</br></br>
 
 
 ## 🏃‍ Catbow-photo-converter Team
@@ -296,8 +298,8 @@ import { v1 } from 'uuid';
 </table>
 
 <br/>
-<br/>
 
+#### 개발 기간
 2022-11-21~2022-12-12 (22일)
 
 <br/>
