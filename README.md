@@ -16,7 +16,7 @@
 
 Catbow-library 프로젝트에서 만든 라이브러리 [catbow-library](https://github.com/catbow/react-catbow-scrollview) 사용시 필요한 서브 페이지를 구현하였습니다.<br/>
 <br/>
-유저는 동영상 업로드 시 해당 동영상을  단위로 자른 사진들을 zip 파일로 자동 저장할 수 있습니다.<br/>
+유저는 동영상 업로드 시 해당 동영상을 프레임 단위로 자른 사진들을 zip 파일로 자동 저장할 수 있습니다.<br/>
 <br/>
 
 <br/>
